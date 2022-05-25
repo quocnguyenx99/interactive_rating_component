@@ -1,0 +1,262 @@
+$primary-color: hsl(25, 97%, 53%);
+$white-color: hsl(0, 0%, 100%);
+$light-grey: hsl(217, 12%, 63%);
+$medium-grey: hsl(216, 12%, 54%);
+$dark-blue: hsl(213, 19%, 18%);
+$dark-blue-darker: hsl(216, 12%, 8%);
+
+html {
+  font-size: 62.5%; // 1rem = 10px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+@mixin flex(
+  $align: flex-start,
+  $justify: flex-start,
+  $wrap: nowrap,
+  $direction: row
+) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-wrap: $wrap;
+  flex-direction: $direction;
+}
+
+@mixin transition-ease-in {
+  transition: all 0.2s ease-in;
+}
+
+body {
+  font-size: 15px;
+  font-family: "Overpass", sans-serif;
+  background-color: $dark-blue-darker;
+  color: $white-color;
+}
+
+.wrapper {
+  max-width: 1440px;
+  margin-top: 10rem;
+}
+
+.interactive-card,
+.thankyou-card {
+  width: 40rem;
+  height: 43rem;
+  border-radius: 3rem;
+  padding: 3rem;
+  margin: 0 auto;
+  background-color: $dark-blue;
+}
+.interactive-card {
+  &__logo {
+    @include flex(center, center);
+    height: 4.5rem;
+    width: 4.5rem;
+    background-color: rgba($light-grey, 0.1);
+    border-radius: 50%;
+    margin-bottom: 3rem;
+  }
+
+  &__title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+  }
+
+  &__desc {
+    font-size: 1.6rem;
+    color: $light-grey;
+    line-height: 1.5;
+    margin-bottom: 3rem;
+  }
+
+  &__rating {
+    @include flex(center, space-between);
+    margin-bottom: 3rem;
+    &-item {
+      @include flex(center, center);
+      cursor: pointer;
+      font-size: 1.6rem;
+      color: $light-grey;
+      height: 4.5rem;
+      width: 4.5rem;
+      background-color: rgba($light-grey, 0.1);
+      border-radius: 50%;
+
+      &:hover {
+        @include transition-ease-in;
+        background-color: $medium-grey;
+        color: $white-color;
+      }
+      &.active {
+        background-color: $primary-color;
+        color: $white-color;
+      }
+    }
+  }
+
+  &__button {
+    @include flex(center, center);
+  }
+}
+
+.btn {
+  cursor: pointer;
+  outline: none;
+  display: inline-block;
+  font-size: 1.6rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: $white-color;
+  border: 0;
+  background-color: transparent;
+  width: 100%;
+  padding: 1.5rem 0;
+
+  &:hover {
+    background-color: $white-color;
+    color: $primary-color;
+    @include transition-ease-in;
+  }
+
+  &--primary {
+    background-color: $primary-color;
+  }
+
+  &--rounded {
+    border-radius: 20px;
+  }
+}
+
+.center {
+  text-align: center;
+}
+
+.thankyou-card {
+  display: none;
+
+  &.show-card {
+    display: block;
+  }
+  &__image {
+    @include flex(center, center);
+    img {
+      margin-top: 1.5rem;
+    }
+  }
+
+  &__rating {
+    @include flex(center, space-between);
+    margin-bottom: 3rem;
+    &-result {
+      margin: 3rem auto 3.5rem;
+      text-align: center;
+      width: 20rem;
+      border-radius: 20px;
+      padding: 1rem 2rem;
+      background-color: rgba($color: $light-grey, $alpha: 0.1);
+    }
+
+    &-text {
+      position: relative;
+      top: 2px;
+      color: $primary-color;
+    }
+  }
+
+  &__title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+  }
+
+  &__desc {
+    font-size: 1.6rem;
+    color: $light-grey;
+    line-height: 1.5;
+    margin-bottom: 3rem;
+  }
+}
+
+@media screen and (max-width: 374px) {
+  body {
+    line-height: 1.4;
+  }
+  .interactive-card,
+  .thankyou-card {
+    width: 28rem;
+    height: 38rem;
+    padding: 2rem;
+  }
+
+  .interactive-card {
+    &__logo {
+      margin-bottom: 2rem;
+      height: 3.5rem;
+      width: 3.5rem;
+    }
+    &__title {
+      font-size: 2.5rem;
+    }
+    &__desc {
+      margin-bottom: 2rem;
+      font-size: 1.5rem;
+    }
+    &__rating {
+      margin-bottom: 2rem;
+      &-item {
+        height: 3.5rem;
+        width: 3.5rem;
+      }
+    }
+  }
+
+  .btn {
+    padding: 1rem 0;
+    font-size: 1.5rem;
+  }
+
+  .thankyou-card {
+    &__image {
+      img {
+        width: 60%;
+      }
+    }
+
+    &__rating {
+      &-result {
+        margin-top: 2rem;
+        margin-bottom: 2.5rem;
+      }
+      &-result {
+        width: 18rem;
+        padding: 0.5rem 1rem;
+      }
+    }
+
+    &__title {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    &__desc {
+      font-size: 1.5rem;
+      margin-bottom: 0;
+    }
+  }
+}

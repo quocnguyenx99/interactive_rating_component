@@ -1,0 +1,241 @@
+html {
+  font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+body {
+  font-size: 15px;
+  font-family: "Overpass", sans-serif;
+  background-color: hsl(216deg, 12%, 8%);
+  color: hsl(0deg, 0%, 100%);
+}
+
+.wrapper {
+  max-width: 1440px;
+  margin-top: 10rem;
+}
+
+.interactive-card,
+.thankyou-card {
+  width: 40rem;
+  height: 43rem;
+  border-radius: 3rem;
+  padding: 3rem;
+  margin: 0 auto;
+  background-color: hsl(213deg, 19%, 18%);
+}
+
+.interactive-card__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  height: 4.5rem;
+  width: 4.5rem;
+  background-color: rgba(149, 158, 172, 0.1);
+  border-radius: 50%;
+  margin-bottom: 3rem;
+}
+.interactive-card__title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+.interactive-card__desc {
+  font-size: 1.6rem;
+  color: hsl(217deg, 12%, 63%);
+  line-height: 1.5;
+  margin-bottom: 3rem;
+}
+.interactive-card__rating {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  margin-bottom: 3rem;
+}
+.interactive-card__rating-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  cursor: pointer;
+  font-size: 1.6rem;
+  color: hsl(217deg, 12%, 63%);
+  height: 4.5rem;
+  width: 4.5rem;
+  background-color: rgba(149, 158, 172, 0.1);
+  border-radius: 50%;
+}
+.interactive-card__rating-item:hover {
+  transition: all 0.2s ease-in;
+  background-color: hsl(216deg, 12%, 54%);
+  color: hsl(0deg, 0%, 100%);
+}
+.interactive-card__rating-item.active {
+  background-color: hsl(25deg, 97%, 53%);
+  color: hsl(0deg, 0%, 100%);
+}
+.interactive-card__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+.btn {
+  cursor: pointer;
+  outline: none;
+  display: inline-block;
+  font-size: 1.6rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: hsl(0deg, 0%, 100%);
+  border: 0;
+  background-color: transparent;
+  width: 100%;
+  padding: 1.5rem 0;
+}
+.btn:hover {
+  background-color: hsl(0deg, 0%, 100%);
+  color: hsl(25deg, 97%, 53%);
+  transition: all 0.2s ease-in;
+}
+.btn--primary {
+  background-color: hsl(25deg, 97%, 53%);
+}
+.btn--rounded {
+  border-radius: 20px;
+}
+
+.center {
+  text-align: center;
+}
+
+.thankyou-card {
+  display: none;
+}
+.thankyou-card.show-card {
+  display: block;
+}
+.thankyou-card__image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+.thankyou-card__image img {
+  margin-top: 1.5rem;
+}
+.thankyou-card__rating {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  margin-bottom: 3rem;
+}
+.thankyou-card__rating-result {
+  margin: 3rem auto 3.5rem;
+  text-align: center;
+  width: 20rem;
+  border-radius: 20px;
+  padding: 1rem 2rem;
+  background-color: rgba(149, 158, 172, 0.1);
+}
+.thankyou-card__rating-text {
+  position: relative;
+  top: 2px;
+  color: hsl(25deg, 97%, 53%);
+}
+.thankyou-card__title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+.thankyou-card__desc {
+  font-size: 1.6rem;
+  color: hsl(217deg, 12%, 63%);
+  line-height: 1.5;
+  margin-bottom: 3rem;
+}
+
+@media screen and (max-width: 374px) {
+  body {
+    line-height: 1.4;
+  }
+
+  .interactive-card,
+.thankyou-card {
+    width: 28rem;
+    height: 38rem;
+    padding: 2rem;
+  }
+
+  .interactive-card__logo {
+    margin-bottom: 2rem;
+    height: 3.5rem;
+    width: 3.5rem;
+  }
+  .interactive-card__title {
+    font-size: 2.5rem;
+  }
+  .interactive-card__desc {
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+  }
+  .interactive-card__rating {
+    margin-bottom: 2rem;
+  }
+  .interactive-card__rating-item {
+    height: 3.5rem;
+    width: 3.5rem;
+  }
+
+  .btn {
+    padding: 1rem 0;
+    font-size: 1.5rem;
+  }
+
+  .thankyou-card__image img {
+    width: 60%;
+  }
+  .thankyou-card__rating-result {
+    margin-top: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  .thankyou-card__rating-result {
+    width: 18rem;
+    padding: 0.5rem 1rem;
+  }
+  .thankyou-card__title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .thankyou-card__desc {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
