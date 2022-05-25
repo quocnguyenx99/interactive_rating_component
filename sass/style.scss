@@ -108,6 +108,11 @@ body {
         background-color: $primary-color;
         color: $white-color;
       }
+
+      // &[aria-selected="true"] {
+      //   background-color: $primary-color;
+      //   color: $white-color;
+      // }
     }
   }
 
